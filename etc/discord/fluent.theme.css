@@ -48,3 +48,9 @@
 button[aria-label="Send a gift"] {
   display: none !important;
 }
+
+@media all and (max-width: 600px) {
+	.wrapper-1_HaEi, .sidebar-1tnWFu, .recentsIcon-F3eO1o, .anchor-1X4H4q, div[aria-label="Show Member List"], div[aria-label="Hide Member List"], .divider-q3P9HC, .topic-11NuQZ, .container-2o3qEW {
+		display: none;
+	}
+}
