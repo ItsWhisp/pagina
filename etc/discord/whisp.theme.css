@@ -1,0 +1,49 @@
+/**
+ * @name whisp theme
+ * @author ItsWhisp
+ * @version 1.0
+ * @description i don't own shit this is just my personal discord theme, mainly based from others with my own custom tweaks
+*/
+
+@import url("https://nyri4.github.io/Discolored/main.css");
+@import url("https://luckfire.github.io/amoled-cord/src/support/compiled.css");
+
+.iconItem-1EjiK0[aria-label="Create Invite"],
+button[aria-label="Send a gift"] {
+  display: none !important;
+}
+
+@media all and (max-width: 600px) {
+
+  .wrapper-1_HaEi,
+  .sidebar-1tnWFu,
+  .recentsIcon-F3eO1o,
+  .anchor-1X4H4q,
+  div[aria-label="Show Member List"],
+  div[aria-label="Hide Member List"],
+  .divider-q3P9HC,
+  .topic-11NuQZ,
+  .container-2o3qEW {
+    display: none;
+  }
+}
+
+.iconItem-1EjiK0[aria-label="Create Invite"],
+button[aria-label="Send a gift"] {
+  display: none !important;
+}
+
+@media all and (max-width: 600px) {
+
+  .wrapper-1_HaEi,
+  .sidebar-1tnWFu,
+  .recentsIcon-F3eO1o,
+  .anchor-1X4H4q,
+  div[aria-label="Show Member List"],
+  div[aria-label="Hide Member List"],
+  .divider-q3P9HC,
+  .topic-11NuQZ,
+  .container-2o3qEW {
+    display: none;
+  }
+}
