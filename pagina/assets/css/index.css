@@ -1,10 +1,48 @@
+/* --------------------------- Fondo / Background --------------------------- */
+
 :root {
 	--background: #008080;
 }
 
 body {
 	background: var(--background);
+	background-position: center;
+	background-size: cover;
+	overflow: hidden;
+}
+
+/* -------------------------------- Ventanas -------------------------------- */
+
+.window {
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: space-between;
+	width: max-content;
+	position: absolute;
+	visibility: hidden;
+	resize: both;
+	overflow: hidden;
+	min-width: max-content;
+}
+
+.window-body {
+	flex-grow: 1;
+}
+
+.status-bar {
+	flex-shrink: 0;
+	width: 100%;
+}
+
+.window:active {
+	min-width: max-content;
+}
+
+.selection-box {
+	position: absolute;
+	border: 1px dotted #000;
+	opacity: 0.5;
+	pointer-events: none;
+	display: none;
 }

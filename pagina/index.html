@@ -5,26 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ｉｔｓｗｈｉｓｐ</title>
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/98.css">
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 
 <body>
+    <div class="selection-box"></div>
     <div class="window">
-        <div class="title-bar">
+        <div class="title-bar unselectable">
             <div class="title-bar-text">hola</div>
             <div class="title-bar-controls">
+                <button aria-label="Close"></button>
             </div>
         </div>
         <div class="window-body">
             <img src="https://media.tenor.com/2yzdWjaO6Z8AAAAM/lucky-star-anime.gif">
-            <div class="status-bar" style="margin-top: 4px;">
-                <p class="status-bar-field">pagina en progreso lol</p>
-            </div>
+        </div>
+        <div class="status-bar">
+            <p class="status-bar-field unselectable">pagina en progreso lol</p>
         </div>
     </div>
+    <div class="window">
+        <div class="title-bar unselectable">
+            <div class="title-bar-text">prueba</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body">lol</div>
+    </div>
+    <script src="assets/js/index.js"></script>
 </body>
 
 </html>
