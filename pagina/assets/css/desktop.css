@@ -1,0 +1,94 @@
+/* ----------------------------- Estilos Basicos ---------------------------- */
+
+:root {
+	cursor: url(../img/cursors/cur_def.png), auto;
+}
+
+/* --------------------------- Fondo / Background --------------------------- */
+
+:root {
+	--background: #008080;
+}
+
+body {
+	background: var(--background);
+	background-position: center;
+	background-size: cover;
+	touch-action: none;
+	overflow: hidden;
+}
+
+/* -------------------------------- Terminal -------------------------------- */
+
+@keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}
+
+.terminal {
+	background-color: #000;
+	color: #fff;
+	width: 100%;
+	height: 100%;
+	padding: 18px;
+	font-size: 1.4em;
+	font-family: "Perfect DOS VGA 437 Win Regular", monospace;
+	box-sizing: border-box;
+	cursor: none;
+	position: absolute;
+	z-index: 999999;
+}
+
+.terminal-txt {
+	gap: 8px;
+	display: flex;
+	white-space: break-spaces;
+	align-items: end;
+	box-sizing: border-box;
+}
+
+.terminal-cur {
+	background-color: #fff;
+	height: 1em;
+	width: 0.6em;
+	display: inline-block;
+	animation: blink-animation 0.5s steps(2, start) infinite;
+}
+
+/* -------------------------------- Ventanas -------------------------------- */
+
+.window {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: space-between;
+	width: max-content;
+	position: absolute;
+	visibility: hidden;
+	/* resize: both; */
+	overflow: hidden;
+	min-width: max-content;
+	max-width: 100%;
+}
+
+.window-body {
+	flex-grow: 1;
+}
+
+.status-bar {
+	flex-shrink: 0;
+	width: 100%;
+}
+
+.window:active {
+	min-width: max-content;
+}
+
+.selection-box {
+	position: absolute;
+	border: 1px dotted #000;
+	opacity: 0.5;
+	pointer-events: none;
+	display: none;
+}

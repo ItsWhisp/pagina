@@ -1,3 +1,10 @@
+/* --------------------------------- Fuentes -------------------------------- */
+
+@font-face {
+	font-family: "Perfect DOS VGA 437 Win Regular";
+	src: url(../font/perfectDOS-win.woff2);
+}
+
 /* ----------------------------- Estilos Basicos ---------------------------- */
 
 * {
