@@ -8,6 +8,10 @@
 /* ----------------------------- Estilos Basicos ---------------------------- */
 
 * {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 	padding: 0;
 	margin: 0;
 }
@@ -16,11 +20,4 @@ html,
 body {
 	height: 100%;
 	width: 100%;
-}
-
-.unselectable {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 }

@@ -1,11 +1,11 @@
 function initializeDesktop(desktop) {
 	const windows = Array.from(document.querySelectorAll('.window'));
-	let holdTimeoutId = null;
-	const touchHoldDelay = 500;
 	const selectionBox = document.querySelector('.selection-box');
+	const touchHoldDelay = 500;
+	let highestZIndex = windows.length;
+	let holdTimeoutId = null;
 	let isSelecting = false;
 	let startX, startY;
-	let highestZIndex = windows.length;
 
 	window.addEventListener('keydown', function (event) {
 		if (event.key === 'Escape') {
@@ -135,8 +135,13 @@ function initializeDesktop(desktop) {
 		const closeButton = titleBar.querySelector('[aria-label="Close"]');
 
 		closeButton.addEventListener("click", () => {
-			windowElement.parentNode.removeChild(windowElement);
-			if (document.querySelectorAll('.window').length === 0) {
+			windowElement.style.display = "none";
+			const visibleWindows = Array.from(document.querySelectorAll('.window')).reduce((count, window) => {
+				return window.style.display !== "none" ? count + 1 : count;
+			}, 0);
+
+			if (visibleWindows === 0) {
+				document.documentElement.style.cursor = "url(assets/img/cursors/cur_busy.png), wait";
 				location.reload();
 			}
 		});
@@ -229,7 +234,7 @@ function initializeDesktop(desktop) {
 		const windowHeight = windowElement.offsetHeight;
 		const centerX = screenWidth / 2 - windowWidth / 2;
 		const centerY = screenHeight / 2 - windowHeight / 2;
-		const windowZIndex = parseInt(windowElement.style.zIndex);
+		// const windowZIndex = parseInt(windowElement.style.zIndex);
 		windowElement.style.minHeight = `${windowElement.offsetHeight}px`;
 		windowElement.style.visibility = "visible";
 		windowElement.style.left = `${centerX}px`;
