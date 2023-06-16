@@ -67,12 +67,15 @@ if (!matchMedia('(pointer:fine)').matches) {
 	}, { once: true });
 }
 
-terminal.addEventListener('keydown', function (event) {
+function handleKeyDown(event) {
 	if (event.key === 'Enter') {
 		event.preventDefault();
+		terminal.removeEventListener('keydown', handleKeyDown);
 		desktopInitialization();
 	}
-});
+}
+
+terminal.addEventListener('keydown', handleKeyDown);
 
 terminal.focus();
 terminal.addEventListener('keydown', function (e) {
