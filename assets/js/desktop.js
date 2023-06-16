@@ -125,6 +125,18 @@ function initializeDesktop(desktop) {
 		initializeWindow(windowElement);
 	});
 
+	windows.forEach((windowElement) => {
+		const resizeObserver = new ResizeObserver(entries => {
+			for (const entry of entries) {
+				if (entry.target === windowElement) {
+					desktopResize();
+				}
+			}
+		});
+
+		resizeObserver.observe(windowElement);
+	});
+
 	function initializeWindow(windowElement) {
 		let isDragging = false;
 		let startX, startY, offsetX, offsetY;

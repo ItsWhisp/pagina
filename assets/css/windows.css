@@ -2,6 +2,7 @@
 
 .nightwave-plaza-body {
 	gap: 8px;
+	max-height: 90px;
 	display: flex;
 	flex-direction: row;
 }
@@ -9,8 +10,12 @@
 .song-details {
 	gap: 4px;
 	display: flex;
-	max-width: 150px;
+	max-width: 200px;
 	flex-direction: column;
+}
+
+#song-length-pos {
+	opacity: 0.8;
 }
 
 #song-artwork {
