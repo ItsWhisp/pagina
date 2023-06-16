@@ -189,7 +189,10 @@ body::after {
 }
 
 .bsod-message {
-	white-space: pre;
+	max-width: 100%;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	white-space: pre-line;
 }
 
 .bsod-description-mobile {
