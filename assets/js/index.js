@@ -132,11 +132,6 @@ function desktopInitialization() {
 								album: data.song.album,
 								artwork: [{ src: data.song.artwork_src }]
 							});
-							navigator.mediaSession.setPositionState({
-								duration: data.song.length,
-								playbackRate: 1,
-								position: data.song.position,
-							});
 						}
 					})
 					.catch(err => console.error(err));
