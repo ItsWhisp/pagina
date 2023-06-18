@@ -1,6 +1,6 @@
 # whisp.jorge603.xyz
 
-Pagina personal destinada a recrear la experiencia de escritorio de windows 95/98
+Pagina personal destinada a recrear la experiencia de escritorio de windows 95/98, escrita usando HTML, CSS y JavaScript vanilla
 
 [![whisp.jorge603.xyz](screenshots/01.png)](https://whisp.jorge603.xyz)
 

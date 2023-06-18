@@ -1,4 +1,7 @@
+// Comportamiento de las ventanas y el escritorio
+
 function initializeDesktop(desktop) {
+	// Declaracion de variables
 	const windows = Array.from(document.querySelectorAll('.window'));
 	const selectionBox = document.querySelector('.selection-box');
 	const touchHoldDelay = 500;
@@ -7,6 +10,8 @@ function initializeDesktop(desktop) {
 	let isSelecting = false;
 	let startX, startY;
 
+	// Limpiar selecciones al pulsar la tecla ESC
+
 	window.addEventListener('keydown', function (event) {
 		if (event.key === 'Escape') {
 			window.getSelection().removeAllRanges();
@@ -14,6 +19,7 @@ function initializeDesktop(desktop) {
 	});
 
 	function desktopResize() {
+		// Reposicionar ventanas si es necesario al redimensionar el escritorio
 		windows.forEach((windowElement) => {
 			const screenWidth = window.innerWidth;
 			const screenHeight = window.innerHeight;
@@ -32,6 +38,7 @@ function initializeDesktop(desktop) {
 
 	desktop.addEventListener('mousedown', e => {
 		if (e.target === desktop) {
+			// Simular caja de seleccion del escritorio (No es funcional)
 			isSelecting = true;
 			startX = e.clientX;
 			startY = e.clientY;
@@ -41,6 +48,7 @@ function initializeDesktop(desktop) {
 			desktop.style.userSelect = 'none';
 		}
 		windows.forEach((windowElement) => {
+			// Manejar ventanas activas/inactivas
 			const titleBar = windowElement.querySelector(".title-bar");
 			if (!windowElement.contains(e.target)) {
 				titleBar.classList.add("inactive");
@@ -52,6 +60,7 @@ function initializeDesktop(desktop) {
 
 	desktop.addEventListener('mousemove', e => {
 		if (isSelecting) {
+			// Comportamiento de la caja de seleccion
 			const currentX = e.clientX;
 			const currentY = e.clientY;
 			const left = Math.min(startX, currentX);
@@ -66,6 +75,7 @@ function initializeDesktop(desktop) {
 	});
 
 	desktop.addEventListener('mouseup', e => {
+		// Comportamiento de la caja de seleccion
 		isSelecting = false;
 		selectionBox.style.display = 'none';
 		selectionBox.style.width = '0';
@@ -75,6 +85,7 @@ function initializeDesktop(desktop) {
 
 	desktop.addEventListener("touchstart", (e) => {
 		if (e.target === desktop) {
+			// Simular caja de seleccion para dispositivos tactiles
 			holdTimeoutId = setTimeout(() => {
 				navigator.vibrate(100);
 				isSelecting = true;
@@ -87,6 +98,7 @@ function initializeDesktop(desktop) {
 			}, touchHoldDelay);
 		}
 		windows.forEach((windowElement) => {
+			// Manejar ventanas activas/inactivas en disp. tactiles
 			const titleBar = windowElement.querySelector(".title-bar");
 			if (!windowElement.contains(e.target)) {
 				titleBar.classList.add("inactive");
@@ -98,6 +110,7 @@ function initializeDesktop(desktop) {
 
 	desktop.addEventListener("touchmove", (e) => {
 		if (isSelecting) {
+			// Comportamiento de la caja de seleccion
 			const currentX = e.touches[0].clientX;
 			const currentY = e.touches[0].clientY;
 			const left = Math.min(startX, currentX);
@@ -112,6 +125,7 @@ function initializeDesktop(desktop) {
 	});
 
 	desktop.addEventListener("touchend", (e) => {
+		// Comportamiento de la caja de seleccion
 		isSelecting = false;
 		clearTimeout(holdTimeoutId);
 		selectionBox.style.display = "none";
@@ -120,6 +134,7 @@ function initializeDesktop(desktop) {
 		desktop.style.userSelect = "";
 	});
 
+	// Reposicionar ventanas si es necesario al redimensionar el escritorio
 	window.addEventListener('resize', desktopResize);
 	windows.forEach((windowElement) => {
 		initializeWindow(windowElement);
@@ -138,6 +153,7 @@ function initializeDesktop(desktop) {
 	});
 
 	function initializeWindow(windowElement) {
+		// Inicializar ventanas y asignar el comportamiento correspondiente
 		let isDragging = false;
 		let startX, startY, offsetX, offsetY;
 		const titleBar = windowElement.querySelector(".title-bar");
@@ -147,11 +163,14 @@ function initializeDesktop(desktop) {
 		const closeButton = titleBar.querySelector('[aria-label="Close"]');
 
 		closeButton.addEventListener("click", () => {
+			// Cerrar Ventana
 			windowElement.style.display = "none";
 			const visibleWindows = Array.from(document.querySelectorAll('.window')).reduce((count, window) => {
 				return window.style.display !== "none" ? count + 1 : count;
 			}, 0);
 
+			// Si ya no hay ventanas abiertas, recargar la pagina
+			// Posiblemente comportamiento temporal
 			if (visibleWindows === 0) {
 				document.documentElement.style.cursor = "url(assets/img/cursors/cur_busy.png), wait";
 				location.reload();
@@ -159,10 +178,12 @@ function initializeDesktop(desktop) {
 		});
 
 		function winDrag(event) {
+			// Manejar comportamiento al arrastrar ventanas
 			if (
 				event.target.classList.contains("title-bar-controls") ||
 				event.target.closest(".title-bar-controls")
 			) {
+				// Descartar si es arrastrada desde los controles de esta
 				return;
 			}
 
@@ -176,6 +197,7 @@ function initializeDesktop(desktop) {
 		}
 
 		function winMove(event) {
+			// Manejar comportamiento al arrastrar y mover ventanas
 			if (!isDragging) {
 				return;
 			}
@@ -212,10 +234,12 @@ function initializeDesktop(desktop) {
 		}
 
 		function winDragEnd() {
+			// Descartar el arrastre de la ventana
 			isDragging = false;
 		}
 
 		windows.forEach((windowElement, index) => {
+			// Manejar el orden de las ventanas
 			const zIndex = index + 1;
 			const titleBar = windowElement.querySelector('.title-bar');
 			const windowZIndex = parseInt(windowElement.style.zIndex);
@@ -240,18 +264,19 @@ function initializeDesktop(desktop) {
 			});
 		});
 
+		// Declaracion de variables
 		const screenWidth = window.innerWidth;
 		const screenHeight = window.innerHeight;
 		const windowWidth = windowElement.offsetWidth;
 		const windowHeight = windowElement.offsetHeight;
 		const centerX = screenWidth / 2 - windowWidth / 2;
 		const centerY = screenHeight / 2 - windowHeight / 2;
-		// const windowZIndex = parseInt(windowElement.style.zIndex);
 		windowElement.style.minHeight = `${windowElement.offsetHeight}px`;
 		windowElement.style.visibility = "visible";
 		windowElement.style.left = `${centerX}px`;
 		windowElement.style.top = `${centerY}px`;
 
+		// Asignar funciones y eventos
 		titleBar.addEventListener("mousedown", winDrag);
 		titleBar.addEventListener("touchstart", (event) => {
 			event.preventDefault();
