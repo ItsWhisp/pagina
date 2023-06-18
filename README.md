@@ -4,6 +4,8 @@ Pagina personal destinada a recrear la experiencia de escritorio de windows 95/9
 
 [![whisp.jorge603.xyz](screenshots/01.png)](https://whisp.jorge603.xyz)
 
+<p align="center">Pagina disponible en <a href="https://whisp.jorge603.xyz" target="_blank">whisp.jorge603.xyz ⧉</a></p>
+
 Actualmente dispone de una ventana de ejemplo y servicio de streaming proveido por [Nightwave Plaza](https://plaza.one)
 
 ## Correr de forma local
