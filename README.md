@@ -18,4 +18,4 @@ git clone --single-branch --branch pagina https://github.com/ItsWhisp/ItsWhisp
 
 Se recomienda especificar la rama (branch) al clonar, para evitar clonar otras ramas, si buscas clonar la pagina probablemente la que necesites sea esta, asi que probablemente quieras usar el comando de arriba
 
-Si usas **Visual Studio Code**, puedes correr un servidor rapido de forma local usando la extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) o [Five Server](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server)
+Si usas **Visual Studio Code**, puedes correr un servidor de forma local rapidamente usando la extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) o [Five Server](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server)
