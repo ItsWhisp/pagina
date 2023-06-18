@@ -7,15 +7,6 @@ const bsod = document.querySelector(".bsod");
 // Cambiar el cursor del documento
 document.documentElement.style.cursor = "url(assets/img/cursors/cur_busy.png), wait";
 
-// Reproducir sonido de apagado al recargar la pagina
-window.addEventListener('beforeunload', function () {
-	var shutSound = new Howl({
-		src: ['assets/media/shutdown.ogg']
-	});
-	Howler.stop();
-	shutSound.play();
-});
-
 // Manejar errores globales
 window.onerror = function (message, source, line, column, error) {
 	// Obtener la ruta base del sitio web
