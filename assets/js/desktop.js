@@ -264,21 +264,35 @@ function initializeDesktop(desktop) {
 			});
 		});
 
-		// Declaracion de variables
+		// Declaración de variables
 		const screenWidth = window.innerWidth;
 		const screenHeight = window.innerHeight;
 		const windowWidth = windowElement.offsetWidth;
 		const windowHeight = windowElement.offsetHeight;
-		const centerX = screenWidth / 2 - windowWidth / 2;
-		const centerY = screenHeight / 2 - windowHeight / 2;
+
+		// Distribución inicial de las ventanas
 		windowElement.style.minHeight = `${windowElement.offsetHeight}px`;
 		windowElement.style.visibility = "visible";
-		windowElement.style.left = `${centerX}px`;
-		windowElement.style.top = `${centerY}px`;
+
+		// Generar coordenadas aleatorias dentro de los límites de la pantalla
+		const maxX = screenWidth - windowWidth;
+		const maxY = screenHeight - windowHeight;
+		const randomX = Math.floor(Math.random() * maxX);
+		const randomY = Math.floor(Math.random() * maxY);
+
+		// Posicionar la ventana de forma aleatoria
+		windowElement.style.left = `${randomX}px`;
+		windowElement.style.top = `${randomY}px`;
 
 		// Asignar funciones y eventos
 		titleBar.addEventListener("mousedown", winDrag);
 		titleBar.addEventListener("touchstart", (event) => {
+			if (
+				event.target.classList.contains("title-bar-controls") ||
+				event.target.closest(".title-bar-controls")
+			) {
+				return;
+			}
 			event.preventDefault();
 			winDrag(event);
 		});

@@ -4,8 +4,14 @@
 	cursor: url(../img/cursors/cur_def.png), auto;
 }
 
-button {
+button,
+label,
+fieldset {
 	cursor: inherit;
+}
+
+input[type=text] {
+	cursor: url(../img/cursors/cur_text.png), text;
 }
 
 a {
@@ -14,16 +20,10 @@ a {
 
 /* --------------------------- Fondo / Background --------------------------- */
 
-:root {
-	--background: #008080;
-}
-
 body {
 	overflow: hidden;
 	touch-action: none;
-	background-size: cover;
-	background-position: center;
-	background: var(--background);
+	background: #008080 center/cover no-repeat;
 }
 
 /* ------------------------------- Efecto CRT ------------------------------- */
@@ -256,20 +256,18 @@ body::after {
 	align-items: stretch;
 	min-width: max-content;
 	flex-direction: column;
+	max-width: 100% !important;
 	justify-content: space-between;
 }
 
 .window-body {
 	flex-grow: 1;
+	max-width: 100% !important;
 }
 
 .status-bar {
 	width: 100%;
 	flex-shrink: 0;
-}
-
-.window:active {
-	min-width: max-content;
 }
 
 .selection-box {

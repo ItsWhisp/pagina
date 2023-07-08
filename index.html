@@ -22,18 +22,38 @@
                 class="bsod-cur">_</span></p>
     </div>
     <div class="selection-box"></div>
-    <div class="window">
+    <div class="window whisp-win">
         <div class="title-bar">
-            <div class="title-bar-text">hola</div>
+            <div class="title-bar-text">ItsWhisp</div>
             <div class="title-bar-controls">
                 <button aria-label="Close"></button>
             </div>
         </div>
-        <div class="window-body">
-            <img src="https://media.tenor.com/2yzdWjaO6Z8AAAAM/lucky-star-anime.gif">
-        </div>
-        <div class="status-bar">
-            <p class="status-bar-field">pagina en progreso lol</p>
+        <div class="window-body whisp-win-body">
+            <div class="whisp-header-main">
+                <img src="https://api.lanyard.rest/917701219160588319.png">
+                <div>
+                    <h4>ItsWhisp</h4>
+                    <ul>
+                        <li><img class="emoji" src="https://cdn3.emoji.gg/emojis/9669-154-konatayawn.gif">Intento de
+                            desarollador Front-End</li>
+                        <li><img class="emoji" src="https://cdn3.emoji.gg/emojis/1038-costarica-flag.gif">Soy de Costa
+                            Rica</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p><strong>Mi perfil de Discord</strong></p>
+            <img
+                src="https://lanyard.cnrad.dev/api/917701219160588319?bg=181825&idleMessage=No+me+encuentro+haciendo+nada+actualmente!">
+            <hr>
+            <strong>
+                <p>Tambien puedes encontrarme en</p>
+            </strong>
+            <p class="whisp-win-links">
+                <a href="https://twitter.com/whispgd_" target="_blank">Twitter</a>
+                <a href="https://github.com/ItsWhisp" target="_blank">GitHub</a>
+            </p>
         </div>
     </div>
     <div class="window" id="nightwave-plaza-win">
@@ -49,13 +69,53 @@
                 <strong id="song-title">Cargando...</strong>
                 <span id="song-artist">Cargando...</span>
                 <span id="song-length-pos">--:-- / --:--</span>
-                <div style="height: 100%;"></div>
+                <!-- <div style="height: 100%;"></div> -->
                 <button id="song-play">Reproducir</button>
             </div>
         </div>
         <div class="status-bar">
-            <span class="song-credits status-bar-field">Servicio proveido por <a href="https://plaza.one/"
-                    target="_blank">Nightwave Plaza</a></span>
+            <span class="status-bar-field">Servicio proveido por <a href="https://plaza.one/" target="_blank">Nightwave
+                    Plaza</a></span>
+        </div>
+    </div>
+    <div class="window" id="wallpaper-win">
+        <div class="title-bar">
+            <div class="title-bar-text">Fondo de pantalla</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body wallpaper-win-body">
+            <div class="wallpaper-prev"></div>
+            <div class="wallpaper-options">
+                <fieldset id="radio-walltype">
+                    <div class="field-row">
+                        <input id="radio-bg-def" type="radio" name="radio-bg">
+                        <label for="radio-bg-def">Color por defecto</label>
+                    </div>
+                    <div class="field-row">
+                        <input id="radio-bg-solid" type="radio" name="radio-bg">
+                        <label for="radio-bg-solid">Color solido</label>
+                    </div>
+                    <div class="field-row">
+                        <input id="radio-bg-url" type="radio" name="radio-bg">
+                        <label for="radio-bg-url">URL Externa</label>
+                    </div>
+                </fieldset>
+                <div class="field-row-stacked" style="width: 250px">
+                    <label for="input-bg-url">Introducir URL externa</label>
+                    <input id="input-bg-url" type="text" placeholder="https://gif.plaza.one/74.gif" />
+                </div>
+                <div class="field-row-stacked" style="width: 250px">
+                    <label for="input-bg-color">Color personalizado</label>
+                    <input id="input-bg-color" type="text" placeholder="#008080" />
+                </div>
+                <button id="apply-wallpaper">Aplicar</button>
+            </div>
+        </div>
+        <div class="status-bar">
+            <span class="status-bar-field wallpaper-win-status">Cambia el fondo de la pagina por una imagen externa o un
+                color solido</span>
         </div>
     </div>
     <div class="terminal" tabindex="100">

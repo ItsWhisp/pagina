@@ -24,4 +24,4 @@ Si usas **Visual Studio Code**, puedes correr un servidor de forma local rapidam
 
 ## Contribuir
 
-Los issues y pull request estan abiertos para cualquiera que desee contribuir a la pagina, estos pueden ser aceptados siempre y cuando aporten algo a la pagina, y no modifiquen el contenido de esta misma siempre de no ser para añadir caracteristicas a la pagina o mejorar esta
+Los issues y pull request estan abiertos para cualquiera que desee contribuir a la pagina, estos pueden ser aceptados siempre y cuando aporten algo a la pagina, y no modifiquen el contenido de esta misma de no ser para añadir caracteristicas a la pagina o mejorar esta

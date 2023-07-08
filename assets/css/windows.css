@@ -1,9 +1,57 @@
+/* ---------------------- Ventana Principal (ItsWhisp) ---------------------- */
+
+.whisp-win .emoji {
+	height: 1.2em;
+}
+
+.whisp-win-body {
+	gap: 8px;
+	width: 300px;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+}
+
+.whisp-header-main {
+	gap: 10px;
+	display: flex;
+	text-align: initial;
+	align-items: center;
+	flex-direction: row;
+}
+
+.whisp-header-main img:not(.emoji) {
+	height: 8em;
+	outline: 1.2px solid #000;
+}
+
+.whisp-header-main ul {
+	list-style: none;
+}
+
+.whisp-header-main li {
+	margin: 4px 0;
+}
+
+.whisp-header-main li img {
+	margin-right: 3px;
+}
+
+.whisp-win-links {
+	gap: 8px;
+	display: flex;
+	padding: 0 10%;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
 /* ----------------------------- Nightwave Plaza ---------------------------- */
 
 .nightwave-plaza-body {
 	gap: 8px;
-	max-height: 90px;
 	display: flex;
+	max-height: 90px;
 	flex-direction: row;
 }
 
@@ -16,12 +64,52 @@
 
 #song-length-pos {
 	opacity: 0.8;
+	/* -------- En caso de que la posicion/duracion de las pistas vuelva -------- */
+	/* ------------------------ ⬇️ Comentar esta linea ⬇️ ----------------------- */
+	display: none;
 }
 
 #song-artwork {
 	width: 90px;
 	height: 90px;
-	outline: 1.2px solid #000;
 	background-size: cover;
+	outline: 1.2px solid #000;
 	background-image: url(../img/track_def.gif);
+}
+
+/* ---------------------------- Fondo de pantalla --------------------------- */
+
+@media (max-width: 750px) {
+	.wallpaper-prev {
+		aspect-ratio: 9 / 16 !important;
+	}
+}
+
+@media (max-width: 400px) {
+	.wallpaper-win-body {
+		flex-direction: column !important;
+	}
+
+	.wallpaper-prev {
+		aspect-ratio: 9 / 16 !important;
+	}
+}
+
+.wallpaper-win-body {
+	gap: 8px;
+	display: flex;
+	flex-direction: row;
+}
+
+.wallpaper-options {
+	gap: 8px;
+	display: flex;
+	flex-direction: column;
+}
+
+.wallpaper-prev {
+	height: 205px;
+	aspect-ratio: 4 / 3;
+	box-sizing: border-box;
+	outline: 1.3px solid #000;
 }
