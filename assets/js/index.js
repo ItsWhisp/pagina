@@ -214,7 +214,7 @@ function desktopInitialization() {
 			// Logica para el reproductor de Nightwave Plaza
 			const playButton = document.getElementById('song-play');
 			const plazaRadio = new Howl({
-				src: ['https://stream.plaza.one/mp3'],
+				src: ['https://radio.plaza.one/mp3'],
 				html5: true,
 				preload: true,
 				onplay: () => {
