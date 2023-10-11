@@ -21,3 +21,11 @@ body {
 	height: 100%;
 	width: 100%;
 }
+
+/* -------------------------------- Terminal -------------------------------- */
+
+.terminal-warning {
+	bottom: 18px;
+	max-width: 90%;
+	position: absolute;
+}

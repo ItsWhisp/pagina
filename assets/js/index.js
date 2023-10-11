@@ -1,4 +1,4 @@
-// Seleccionar elementos del DOM
+// Define elementos del DOM y variables recurrentes
 const terminal = document.querySelector('.terminal');
 const bsodTitle = document.querySelector(".bsod-title");
 const bsodMessage = document.querySelector(".bsod-message");
@@ -79,7 +79,7 @@ document.addEventListener('keydown', function (event) {
 // Comprobar pantalla tactil
 if (!matchMedia('(pointer:fine)').matches) {
 	// Modificar el texto de la terminal para dispositivos tactiles
-	terminal.innerHTML = '<p class="terminal-txt">Pulsa la pantalla para continuar...<span class="terminal-cur"></span></p>';
+	terminal.innerHTML = '<p class="terminal-txt">Pulsa la pantalla para continuar...<span class="terminal-cur"></span></p><br><div class="terminal-warning"><p class="terminal-txt">Para la mejor experiencia, visita esta pagina desde un navegador de escritorio, pueden haber luces parpadeantes o ruidos altos, procede con precaucion</p></div>';
 	terminal.addEventListener('click', function (event) {
 		event.preventDefault();
 		desktopInitialization();
@@ -106,14 +106,14 @@ terminal.addEventListener('keydown', function (e) {
 	}
 });
 
-// Valores necesarios para el comportamiento del fondo de pantalla
+// Variables necesarias para el comportamiento del fondo de pantalla
+const bgPreview = document.querySelector('.wallpaper-prev');
 const radioBgDef = document.getElementById('radio-bg-def');
 const radioBgSolid = document.getElementById('radio-bg-solid');
 const radioBgUrl = document.getElementById('radio-bg-url');
 const inputBgUrl = document.getElementById('input-bg-url');
 const inputBgColor = document.getElementById('input-bg-color');
 const applyWall = document.getElementById('apply-wallpaper');
-const bgPreview = document.querySelector('.wallpaper-prev');
 const wallTypesGroup = document.getElementById('radio-walltype');
 const wallTypesRadios = wallTypesGroup.querySelectorAll('input[type="radio"]');
 
@@ -211,9 +211,9 @@ function desktopInitialization() {
 					.catch(err => console.error(err));
 			}
 
-			// Logica para el reproductor de Nightwave Plaza
+			// Reproductor de Nightwave Plaza
 			const playButton = document.getElementById('song-play');
-			const plazaRadio = new Howl({
+			plazaRadio = new Howl({
 				src: ['https://radio.plaza.one/mp3'],
 				html5: true,
 				preload: true,
@@ -368,6 +368,106 @@ function desktopInitialization() {
 					return;
 				}
 			});
+
+			/* ----------------------------- Boton Chistoso ----------------------------- */
+
+			const funnyButton = document.getElementById("funny-button");
+
+			funnyButton.addEventListener('click', () => {
+				bounce();
+			});
+
 		}, 1200);
 	}, 400);
+
+	// las ventanas chistosas
+	function bounce() {
+		// Define las ventanas y el comportamiento
+		const windows = Array.from(document.querySelectorAll('.window'));
+		let bounceDistance = 10;
+		let bounceSpeed = 5;
+
+		// Detiene la reproducción de Nightwave Plaza y cierra su ventana
+		plazaRadio.stop();
+		document.getElementById('nightwave-plaza-win').style.display = 'none';
+
+		// caos
+		new Howl({
+			src: ['https://files.jorge603.xyz/file/652351.mp3'],
+			html5: true,
+			loop: true,
+			onplayerror: (error) => {
+				console.error(error);
+			}
+		}).play();
+
+		document.body.style.background = `url("assets/img/konata_bg.gif") center/cover no-repeat`;
+
+		randomInterval = Math.floor(Math.random() * 6000);
+		setInterval(function () {
+			setTimeout(() => {
+				console.log(randomInterval);
+				randomInterval = Math.floor(Math.random() * 10000) + 1000;
+				if (document.body.style.background == `url("assets/img/konata_bg.gif") center center / cover no-repeat`) {
+					document.body.style.background = `url("assets/img/flashing.gif") center/cover no-repeat`;
+				} else if (document.body.style.background == `url("assets/img/flashing.gif") center center / cover no-repeat`) {
+					document.body.style.background = `url("assets/img/konata_bg.gif") center/cover no-repeat`;
+				} else {
+					document.body.style.background = `url("assets/img/konata_bg.gif") center/cover no-repeat`;
+				}
+			}, randomInterval);
+		}, 1000);
+
+		var custErrors = [
+			'konata!!!!!',
+			'bsod omgg',
+			'blehhh',
+			'tbh',
+			':p'
+		];
+
+		document.addEventListener("click", function (event) {
+			event.stopPropagation();
+			const errMsg = custErrors[Math.floor(Math.random() * custErrors.length)];
+			throw new Error(errMsg);
+		}, true);
+
+
+		// Tono de la pagina
+		let hueRotateValue = 0;
+
+		// Logica para cada ventana
+		windows.forEach((windowElement) => {
+			let directionX = 1;
+			let directionY = 1;
+
+			setInterval(() => {
+				const currentLeft = parseFloat(windowElement.style.left);
+				const currentTop = parseFloat(windowElement.style.top);
+
+				const newLeft = currentLeft + directionX * bounceDistance;
+				const newTop = currentTop + directionY * bounceDistance;
+
+				// Rebota a la dirección contraria si la ventana colisiona con los bordes
+				if (newLeft < 0 || newLeft + windowElement.offsetWidth > window.innerWidth) {
+					directionX *= -1;
+				}
+
+				if (newTop < 0 || newTop + windowElement.offsetHeight > window.innerHeight) {
+					directionY *= -1;
+				}
+
+				// Actualizar la posición de la ventana
+				windowElement.style.left = `${newLeft}px`;
+				windowElement.style.top = `${newTop}px`;
+
+				// Actualizar el valor del tono
+				hueRotateValue = (hueRotateValue + 1) % 360;
+
+				// Aplica el filtro del tono a toda la pagina
+				document.documentElement.style.filter = `hue-rotate(${hueRotateValue}deg)`;
+			}, bounceSpeed);
+		});
+	}
+
 }

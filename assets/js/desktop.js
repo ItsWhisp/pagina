@@ -170,7 +170,6 @@ function initializeDesktop(desktop) {
 			}, 0);
 
 			// Si ya no hay ventanas abiertas, recargar la pagina
-			// Posiblemente comportamiento temporal
 			if (visibleWindows === 0) {
 				document.documentElement.style.cursor = "url(assets/img/cursors/cur_busy.png), wait";
 				location.reload();

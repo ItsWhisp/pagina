@@ -232,7 +232,6 @@ body::after {
 	display: flex;
 	align-items: end;
 	box-sizing: border-box;
-	white-space: break-spaces;
 }
 
 .terminal-cur {
@@ -275,5 +274,6 @@ body::after {
 	display: none;
 	position: absolute;
 	pointer-events: none;
-	border: 1px dotted #000;
+	mix-blend-mode: difference;
+	border: 1.5px solid #fff;
 }

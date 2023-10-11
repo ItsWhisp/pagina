@@ -1,6 +1,6 @@
 /* ---------------------- Ventana Principal (ItsWhisp) ---------------------- */
 
-.whisp-win .emoji {
+#whisp-win .emoji {
 	height: 1.2em;
 }
 
@@ -64,8 +64,6 @@
 
 #song-length-pos {
 	opacity: 0.8;
-	/* -------- En caso de que la posicion/duracion de las pistas vuelva -------- */
-	/* ------------------------ ⬇️ Comentar esta linea ⬇️ ----------------------- */
 	display: none;
 }
 
@@ -112,4 +110,12 @@
 	aspect-ratio: 4 / 3;
 	box-sizing: border-box;
 	outline: 1.3px solid #000;
+}
+
+/* ----------------------------- Boton Chistoso ----------------------------- */
+
+.button-win-body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
