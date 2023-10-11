@@ -389,7 +389,6 @@ function desktopInitialization() {
 
 		// Detiene la reproducción de Nightwave Plaza y cierra su ventana
 		plazaRadio.stop();
-		document.getElementById('nightwave-plaza-win').style.display = 'none';
 
 		// caos
 		new Howl({
