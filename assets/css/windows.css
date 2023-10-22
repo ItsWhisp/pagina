@@ -87,10 +87,6 @@
 	.wallpaper-win-body {
 		flex-direction: column !important;
 	}
-
-	.wallpaper-prev {
-		aspect-ratio: 9 / 16 !important;
-	}
 }
 
 .wallpaper-win-body {
@@ -118,4 +114,23 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+/* -------------------------------- Anuncios -------------------------------- */
+
+.ads-win-body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: url(../img/cursors/cur_busy.png), wait;
+}
+
+.ads-win-img {
+	@media (max-width: 750px) {
+		.ads-win-img {
+			max-width: 120px !important;
+		}
+	}
+
+	max-width: 400px;
 }

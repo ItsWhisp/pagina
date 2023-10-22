@@ -106,7 +106,7 @@ terminal.addEventListener('keydown', function (e) {
 	}
 });
 
-// Variables necesarias para el comportamiento del fondo de pantalla
+// Variables necesarias para la ventana del fondo de pantalla
 const bgPreview = document.querySelector('.wallpaper-prev');
 const radioBgDef = document.getElementById('radio-bg-def');
 const radioBgSolid = document.getElementById('radio-bg-solid');
@@ -252,7 +252,7 @@ function desktopInitialization() {
 			// Estado de reproducción actual
 			isPlaying = false;
 
-			// Manejar eventos de clic en el botón de reproducción
+			// Manejar eventos de click en el botón de reproducción
 			playButton.addEventListener('click', () => {
 				playButton.disabled = true;
 				playButton.textContent = 'Cargando';
@@ -377,6 +377,44 @@ function desktopInitialization() {
 				bounce();
 			});
 
+			/* --------------------------- Ventana de anuncios -------------------------- */
+
+			setTimeout(() => {
+				let currentAd = 0;
+				const windowBody = document.querySelector(".ads-win-body");
+				const windowAd = document.querySelector(".ads-win-img");
+				const titleBarText = document.querySelector("#ads-win .title-bar .title-bar-text");
+				const adList = [
+					{
+						title: "Hatsune Miku in YOUR wifi?",
+						img: "assets/img/pub/01.png",
+						link: "https://www.youtube.com/watch?v=n5n7CSGPzqw"
+					},
+					{
+						title: "Files by Jorge#603",
+						img: "assets/img/pub/02.png",
+						link: "https://files.jorge603.xyz"
+					},
+				];
+
+				function clickAd() {
+					window.open(adList[currentAd].link, '_blank');
+				}
+
+				function changeAd() {
+					currentAd = (currentAd + 1) % adList.length;
+					windowAd.style.outline = "1.3px solid #000";
+					windowAd.src = adList[currentAd].img;
+					titleBarText.textContent = `[ANUNCIO] ${adList[currentAd].title}`;
+					windowAd.removeEventListener('click', clickAd);
+					windowAd.addEventListener('click', clickAd);
+				}
+
+				changeAd();
+				windowAd.style.cursor = "url(assets/img/cursors/cur_pointer.png) 4 0, auto";
+				windowBody.style.cursor = "url(assets/img/cursors/cur_def.png), auto";
+				setInterval(changeAd, 5000);
+			}, 3000);
 		}, 1200);
 	}, 400);
 
@@ -418,11 +456,10 @@ function desktopInitialization() {
 		}, 1000);
 
 		var custErrors = [
-			'konata!!!!!',
-			'bsod omgg',
-			'blehhh',
+			':p',
 			'tbh',
-			':p'
+			'blehhh',
+			'bsod omgg',
 		];
 
 		document.addEventListener("click", function (event) {
