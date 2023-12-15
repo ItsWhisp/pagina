@@ -87,22 +87,30 @@
 
 /* ----------------------------- Estilos Basicos ---------------------------- */
 
-body {
+body,
+html {
 	background-color: #000;
+}
+
+body,
+html,
+.abg,
+.overlay {
 	overflow: hidden;
+	max-height: 100%;
+	max-width: 100%;
 }
 
 /* ------------------------------ Fondo Animado ----------------------------- */
 
 .abg {
 	background-image: url('https://wallpapercave.com/wp/wp3866798.jpg');
-	animation: rotate 80s linear infinite, fade-in 5s ease-in;
+	animation: fade-in 5s ease-in;
 	background-position: center;
 	background-size: cover;
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	scale: 2;
 }
 
 .overlay {
