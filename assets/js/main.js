@@ -42,3 +42,5 @@ const getBrowser = () => { // Definir navegador del usuario
         document.head.appendChild(favicon);
     }
 })();
+
+document.addEventListener('contextmenu', event => event.preventDefault());
