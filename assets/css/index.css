@@ -1,0 +1,137 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-5');
+
+/* ------------------------------- Animaciones ------------------------------ */
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes rotate {
+	from {
+		rotate: 0deg;
+	}
+
+	to {
+		rotate: 360deg;
+	}
+}
+
+@keyframes blob1 {
+	0% {
+		rotate: 0deg;
+		transform: translate(0, 30vh);
+	}
+
+	25% {
+		transform: translate(0, 10vh);
+	}
+
+	50% {
+		rotate: 360deg;
+		transform: translate(0, 20vh);
+	}
+
+	100% {
+		rotate: 0deg;
+		transform: translate(0, 30vh);
+	}
+}
+
+@keyframes blob2 {
+	0% {
+		rotate: 360deg;
+		transform: translate(30vw, 10vh);
+	}
+
+	25% {
+		transform: translate(-20vw, -20vh);
+	}
+
+	50% {
+		rotate: 0deg;
+		transform: translate(35vw, 5vh);
+	}
+
+	100% {
+		rotate: 360deg;
+		transform: translate(30vw, 10vh);
+	}
+}
+
+@keyframes blob3 {
+	0% {
+		rotate: 0deg;
+		transform: translate(-10vw, -50vh);
+	}
+
+	25% {
+		transform: translate(-20vw, -10vh);
+	}
+
+	50% {
+		rotate: 360deg;
+		transform: translate(-35vw, -40vh);
+	}
+
+	100% {
+		rotate: 0deg;
+		transform: translate(-10vw, -50vh);
+	}
+}
+
+/* ----------------------------- Estilos Basicos ---------------------------- */
+
+body {
+	background-color: #000;
+	overflow: hidden;
+}
+
+/* ------------------------------ Fondo Animado ----------------------------- */
+
+.abg {
+	background-image: url('https://wallpapercave.com/wp/wp3866798.jpg');
+	animation: rotate 80s linear infinite, fade-in 5s ease-in;
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	scale: 2;
+}
+
+.overlay {
+	background-image: url('https://jorge603.xyz/assets/img/noise.png');
+	background-color: rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(60px);
+	background-repeat: repeat;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
+
+.blob {
+	border-radius: 100%;
+	position: absolute;
+	filter: blur(30px);
+	scale: 2;
+}
+
+.blob:nth-child(1) {
+	animation: blob1 50s ease-in-out infinite;
+}
+
+.blob:nth-child(2) {
+	animation: blob2 50s ease-in-out infinite;
+}
+
+.blob:nth-child(3) {
+	animation: blob3 50s ease-in-out infinite;
+}
